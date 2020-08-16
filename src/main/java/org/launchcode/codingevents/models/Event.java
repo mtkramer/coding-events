@@ -1,11 +1,16 @@
 package org.launchcode.codingevents.models;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
 import java.util.Objects;
 
+@Entity
 public class Event {
 
+    @Id
+    @GeneratedValue
     private int id;
-    private static int nextId = 1;
 
     private String name;
     private String description;
@@ -13,9 +18,8 @@ public class Event {
     public Event(String name, String description) {
         this.name = name;
         this.description = description;
-        this.id = nextId;
-        nextId++;
     }
+    public Event(){}
 
     @Override
     public String toString() { return name; }
